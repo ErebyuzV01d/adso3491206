@@ -60,7 +60,11 @@ body {
     &.html{
         background: linear-gradient(45deg, black, #e44d26);
         main{
-            menu.mainmenu{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+                menu.mainmenu{
                 a:link, a:visited{
                     span{
                         background-color: #e44d26;
@@ -83,20 +87,37 @@ body {
             }
         }
     }
-    main {
-        background: linear-gradient(#000600, #0000);
-        border-radius: 0.4rem;
-        padding: 1rem;
-        header.mainmenu {
-            &.internal{
-                h1{
-                    font-size: 2rem;
+    &.css {
+        background: linear-gradient(45deg, black, #663399);
+        background-attachment: fixed;
+        main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+                menu.mainmenu{
+                a:link, a:visited{
+                    span{
+                        background-color: purple;
+                        height: 50px;
+                        width: 50px;
+                    }
                 }
-                img{
-                    height: 120px;
-                    width: 120px;
+                aside{
+                    h4{
+                        font-size: 1.2rem;
+                    }
                 }
             }
+        }
+        section{
+            h2.subtitle{
+                color: #663399;
+                border-bottom: 2px dotted #663399;
+                padding-bottom: 0.4rem;
+            }
+        }
+    }
             h1 {
                 font-size: 3.6rem;
                 border-bottom: 2px solid #0c3817;
