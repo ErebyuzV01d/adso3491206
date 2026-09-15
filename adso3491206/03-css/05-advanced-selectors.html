@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-advanced-selectors</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <style>
+        ul > li[class="orange"] + li{
+            background-color: #f09d0f;
+            color:black;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="css">
+    <nav class="back">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M112,56V200L40,128Z" opacity="0.2"></path><path d="M216,120H120V56a8,8,0,0,0-13.66-5.66l-72,72a8,8,0,0,0,0,11.32l72,72A8,8,0,0,0,120,200V136h96a8,8,0,0,0,0-16ZM104,180.69,51.31,128,104,75.31Z"></path></svg>
+        </a>
+    </nav>
+    <main>
+        <header class="mainmenu internal">
+            <h1>05-advanced-selectors</h1>
+            <img src="../src/imgs/logo-css.png" alt="CSS">
+            <ul>
+                <li>Adjacent/Sibling (+)</li>
+                <li>Attribute [class]</li>
+                <li>Children (>)</li>
+            </ul>
+        </header>
+        <section>
+            <h2 class="subtitle">Ejemplo:</h2>
+            <ul class="fruits">
+                <li class="orange">Orange</li>
+                <li class="apple">Apple</li>
+                <li class="banana">Banana</li>
+                <li class="grapes">Grapes</li>
+                <li class="watermelon">Watermelon</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
