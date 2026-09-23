@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flujograma - Registro de Productos</title>
+    
+    <!-- Mermaid.js desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    
+    <style>
+        /* === RESET Y ESTILOS GLOBALES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0b1120 0%, #1a253b 50%, #0b1120 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1rem;
+        }
+
+        /* === TARJETA PRINCIPAL === */
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 2.5rem;
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 1900px;
+            width: 100%;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        /* === ENCABEZADO === */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header h1 {
+            color: #f0f4ff;
+            font-weight: 600;
+            font-size: 1.9rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header h1 span {
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #0b1120;
+            letter-spacing: 0.3px;
+        }
+
+        .badge {
+            background: rgba(96, 165, 250, 0.15);
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            color: #93bbfc;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #34d399;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.7); }
+        }
+
+        /* === CONTENEDOR DEL DIAGRAMA === */
+        .mermaid-wrapper {
+            background: rgba(10, 16, 30, 0.6);
+            border-radius: 1.8rem;
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.3);
+            overflow-x: auto;
+            transition: all 0.4s ease;
+        }
+
+        .mermaid-wrapper:hover {
+            border-color: rgba(96, 165, 250, 0.15);
+            box-shadow: inset 0 2px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* === ESTILOS PARA EL SVG DE MERMAID === */
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 320px;
+        }
+
+        /* Forzamos estilos en los nodos del diagrama */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node polygon {
+            transition: all 0.3s ease;
+        }
+
+        /* Animación de entrada para el diagrama */
+        .mermaid svg {
+            animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            max-width: 100%;
+            height: auto;
+        }
+
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* === PIE DE PÁGINA === */
+        .footer {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.5rem;
+        }
+
+        .footer .steps {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer .steps span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .footer .steps .num {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 0.1rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer a {
+            color: rgba(96, 165, 250, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #60a5fa;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 700px) {
+            .container {
+                padding: 1.5rem 1rem;
+                border-radius: 1.8rem;
+            }
+
+            .header h1 {
+                font-size: 1.4rem;
+            }
+
+            .badge {
+                font-size: 0.75rem;
+                padding: 0.3rem 1rem;
+            }
+
+            .mermaid-wrapper {
+                padding: 1rem 0.5rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+        }
+
+        /* === SCROLLBAR PERSONALIZADA === */
+        .mermaid-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .mermaid-wrapper::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+        }
+
+        .mermaid-wrapper::-webkit-scrollbar-thumb {
+            background: rgba(96, 165, 250, 0.25);
+            border-radius: 10px;
+        }
+
+        .mermaid-wrapper::-webkit-scrollbar-thumb:hover {
+            background: rgba(96, 165, 250, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>
+                📦 Registro de Producto
+                <span>Flujograma</span>
+            </h1>
+            <div class="badge">
+                <span class="dot"></span>
+                Sistema de Inventario · v2.0
+            </div>
+        </div>
+
+        <!-- DIAGRAMA MERMAID -->
+        <div class="mermaid-wrapper">
+            <div class="mermaid">
+                flowchart LR
+                    A([🚀 Inicio]) --> B[Ingresar datos del producto<br><i>nombre, categoría, código,<br>precio, stock inicial</i>]
+                    B --> C{✅ Validar campos<br>obligatorios}
+                    C -->|❌ Faltan datos| D[⚠️ Mostrar mensaje de error<br>y solicitar corrección]
+                    D --> B
+                    C -->|✅ Datos completos| E{🔍 Validar que el código<br>no esté duplicado}
+                    E -->|❌ Código ya existe| F[🔄 Mostrar alerta de duplicado<br>y pedir nuevo código]
+                    F --> B
+                    E -->|✅ Código único| G[💾 Guardar producto<br>en la base de datos]
+                    G --> H{📤 ¿Guardado exitoso?}
+                    H -->|❌ No| I[📝 Registrar error en log<br>y notificar al usuario]
+                    I --> J[❌ Mostrar mensaje de fallo]
+                    J --> K([⛔ Fin con error])
+                    H -->|✅ Sí| L[🔄 Actualizar vista<br>de inventario]
+                    L --> M[✅ Mostrar confirmación<br>al usuario]
+                    M --> N([🎯 Fin exitoso])
+
+                    %% Estilos personalizados
+                    classDef startEnd fill:#1a2a4a,stroke:#60a5fa,stroke-width:2px,color:#e0edff,font-weight:bold
+                    classDef process fill:#1e2d4d,stroke:#818cf8,stroke-width:1.5px,color:#e0edff
+                    classDef decision fill:#1e2d3d,stroke:#fbbf24,stroke-width:2px,color:#fde68a
+                    classDef error fill:#3d1a2a,stroke:#f87171,stroke-width:2px,color:#fca5a5
+                    classDef success fill:#1a3a2a,stroke:#34d399,stroke-width:2px,color:#6ee7b7
+                    classDef alert fill:#3d3a1a,stroke:#fbbf24,stroke-width:2px,color:#fde68a
+
+                    class A,N startEnd
+                    class B,G,L process
+                    class C,E,H decision
+                    class D,F,I,J error
+                    class K error
+                    class M success
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="steps">
+                <span><span class="num">1</span> Validación</span>
+                <span><span class="num">2</span> Duplicados</span>
+                <span><span class="num">3</span> Guardado</span>
+                <span><span class="num">4</span> Confirmación</span>
+            </div>
+            <div>
+                ⚡ Diagrama interactivo · 
+                <a href="#" onclick="location.reload();return false;">↻ Recargar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Inicializar Mermaid con configuración mejorada
+        mermaid.initialize({
+            theme: 'dark',
+            themeVariables: {
+                background: 'transparent',
+                primaryColor: '#1a2a4a',
+                primaryTextColor: '#e0edff',
+                primaryBorderColor: '#60a5fa',
+                lineColor: '#4a6a9a',
+                secondaryColor: '#1e2d4d',
+                tertiaryColor: '#1a253b',
+                fontFamily: 'Segoe UI, system-ui, sans-serif',
+                fontSize: '14px',
+                edgeLabelBackground: 'rgba(10,16,30,0.8)',
+                nodeBorder: '#4a6a9a',
+                nodeTextColor: '#e0edff',
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20,
+                nodeSpacing: 60,
+                rankSpacing: 70,
+            },
+            securityLevel: 'loose',
+        });
+
+        // Re-renderizar después de cargar para asegurar estilos
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.run({
+                nodes: document.querySelectorAll('.mermaid'),
+            });
+        });
+    </script>
+</body>
+</html>

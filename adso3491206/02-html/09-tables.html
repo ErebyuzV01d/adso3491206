@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-Tables</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            thead {
+                th {
+                    background-color: #000;
+                    padding: 0.4rem 0.6rem;
+                }
+            }
+            tbody {
+                tr {
+                   & first-of-type {
+                        border-top: 1px solid #fff;
+                    }
+                    &:nth-child(even){
+                        background-color: #fff3;
+                    }
+                    td {
+                        border-bottom: 1px solid #fff;
+                        font-size: 0.8rem;
+                        padding: 0.4rem;
+                    }
+                }
+            }
+            tfoot {
+                td {
+                    background-color: #000;
+                    font-size: 0.8rem;
+                    text-align: center;
+                    padding: 0.4rem 0.6rem;
+                }
+            }
+        }
+    </style>
+</head>
+<body class="html">
+    <nav class="back">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M112,56V200L40,128Z" opacity="0.2"></path><path d="M216,120H120V56a8,8,0,0,0-13.66-5.66l-72,72a8,8,0,0,0,0,11.32l72,72A8,8,0,0,0,120,200V136h96a8,8,0,0,0,0-16ZM104,180.69,51.31,128,104,75.31Z"></path></svg>
+        </a>
+    </nav>
+    <main>
+        <header class="mainmenu internal">
+            <h1>09-Tables</h1>
+            <img src="../src/imgs/logo-html.png" alt="Profile">
+            <h3>Description</h3>
+        </header>
+        <section>
+            <h2 class="subtitle">Basic Table (6x3)</h2>
+            <table>
+                <thead>
+                    <tr>   
+                        <th>ID</th>
+                        <th>Fullname</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+            <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>Homero Simpson</td>
+                        <td>+1 1234561</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>Lisa Simpson</td>
+                        <td>+1 1234562</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>Barth Simpson</td>
+                        <td>+1 1234563</td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td>Marge Simpson</td>
+                        <td>+1 1234564</td>
+                    </tr>
+                    <tr>
+                        <td>05</td>
+                        <td>Maggie Simpson</td>
+                        <td>+1 1234565</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">🤩Simpson Family</td>
+                    </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
+
+
+    
