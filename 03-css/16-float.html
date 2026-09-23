@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16-Float</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <style>
+        .imagen-flotante {
+            float: left; /* Intenta cambiar a 'right' */
+            width: 150px;
+            height: 150px;
+            background-color: coral;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 150px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .clearfix {
+            clear: both; /* Limpia el float para que no afecte a lo de abajo */
+        }
+    </style>
+</head>
+<body class="css">
+    <nav class="back">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M112,56V200L40,128Z" opacity="0.2"></path><path d="M216,120H120V56a8,8,0,0,0-13.66-5.66l-72,72a8,8,0,0,0,0,11.32l72,72A8,8,0,0,0,120,200V136h96a8,8,0,0,0,0-16ZM104,180.69,51.31,128,104,75.31Z"></path></svg>
+        </a>
+    </nav>
+    <main>
+        <header class="mainmenu internal">
+            <h1>16-Float</h1>
+            <img src="../src/imgs/logo-css.png" alt="CSS">
+            <h3>Pushes the element to either the left or right side.</h3>
+        </header>
+        <section>
+            <div class="imagen-flotante">Imagen</div>
+    
+    <p>
+        Este es un texto de ejemplo. El elemento de arriba tiene <strong>float: left</strong>. 
+        Esto hace que el texto rodee al cuadrado de color coral. Es muy útil para revistas o periódicos digitales.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+    
+    <div class="clearfix"></div>
+    <p>Este texto está debajo porque usamos clear: both.</p>
+        </section>
+    </main>
+</body>
+</html>

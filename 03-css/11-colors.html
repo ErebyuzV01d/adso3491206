@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-Colors</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <style>
+        body main {
+            width: 440px;
+        }
+        div.colors {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        div.colors div {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        div.colors div div {
+            color: black;
+            height: 78px;
+            font-size: 0.55rem;
+            transition: all 0.2s ease-in;
+            width: 78px;
+        }
+        div.colors div div:first-child,
+        div.colors div div:last-child {
+            color: white;
+        }
+        div.colors div div:hover {
+            transform: scale(1.2);
+        }
+        /* Row 1*/
+        div.maroon { background-color: maroon; color: ; }
+        div.red    { background-color: red;    }
+        div.orange { background-color: orange; }
+        div.yellow { background-color: yellow; }
+        div.olive  { background-color: olive;  }
+        /* Row 2*/
+        div.purple  { background-color: purple;  }
+        div.fuchsia { background-color: fuchsia; }
+        div.white   { background-color: white;   }
+        div.lime    { background-color: lime;    }
+        div.green   { background-color: green;   }
+        /* Row 3*/
+        div.navy { background-color: navy; }
+        div.blue { background-color: blue; }
+        div.aqua { background-color: aqua; }
+        div.teal { background-color: teal; }
+        /* Row 4*/
+        div.black  { background-color: black;  }
+        div.silver { background-color: silver; }
+        div.gray   { background-color: gray;   }
+    </style>
+</head>
+<body class="css">
+    <nav class="back">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M112,56V200L40,128Z" opacity="0.2"></path><path d="M216,120H120V56a8,8,0,0,0-13.66-5.66l-72,72a8,8,0,0,0,0,11.32l72,72A8,8,0,0,0,120,200V136h96a8,8,0,0,0,0-16ZM104,180.69,51.31,128,104,75.31Z"></path></svg>
+        </a>
+    </nav>
+    <main>
+        <header class="mainmenu internal">
+            <h1>11-Colors</h1>
+            <img src="../src/imgs/logo-css.png" alt="CSS">
+            <h3>Are specified using predefined color names, or RGB, HEX, HSL.</h3>
+        </header>
+        <section>
+            <h2 class="subtitle"></h2>
+            <div class="colors">
+                <div>
+                    <div class="maroon">marron</div>
+                    <div class="red">red</div>
+                    <div class="orange">orange</div>
+                    <div class="yellow">yellow</div>
+                    <div class="olive">olive</div>
+                </div>
+                <div>
+                    <div class="purple">purple</div>
+                    <div class="fuchsia">fuchsia</div>
+                    <div class="white">white</div>
+                    <div class="lime">lime</div>
+                    <div class="green">green</div>
+                </div>
+                <div>
+                    <div class="navy">navy</div>
+                    <div class="blue">blue</div>
+                    <div class="aqua">aqua</div>
+                    <div class="teal">teal</div>
+                </div>
+                <div>
+                    <div class="black">black</div>
+                    <div class="silver">silver</div>
+                    <div class="gray">gray</div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

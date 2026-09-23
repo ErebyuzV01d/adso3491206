@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-Position</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <style>
+        body { font-family: sans-serif; padding-bottom: 1000px; /* Para poder hacer scroll */ }
+        
+        .contenedor {
+            width: 300px;
+            height: 300px;
+            background-color: #eee;
+            border: 2px solid #333;
+            margin: 20px;
+            position: relative; /* Necesario para que 'absolute' se ubique respecto a este contenedor */
+        }
+
+        .caja {
+            width: 80px;
+            height: 80px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* 1. Static (Por defecto) */
+        .static { background: blue; position: static; }
+
+        /* 2. Relative (Se mueve respecto a donde debería estar) */
+        .relative { background: green; position: relative; top: 20px; left: 20px; }
+
+        /* 3. Absolute (Se sale del flujo y se ubica respecto al padre con position relative) */
+        .absolute { background: red; position: absolute; top: 10px; right: 10px; }
+
+        /* 4. Fixed (Se queda pegado a la pantalla aunque hagas scroll) */
+        .fixed { background: purple; position: fixed; bottom: 20px; right: 20px; }
+
+        /* 5. Sticky (Se comporta como relative hasta que haces scroll y se pega) */
+        .sticky { background: orange; position: sticky; top: 0; }
+    </style>
+</head>
+<body class="css">
+    <nav class="back">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M112,56V200L40,128Z" opacity="0.2"></path><path d="M216,120H120V56a8,8,0,0,0-13.66-5.66l-72,72a8,8,0,0,0,0,11.32l72,72A8,8,0,0,0,120,200V136h96a8,8,0,0,0,0-16ZM104,180.69,51.31,128,104,75.31Z"></path></svg>
+        </a>
+    </nav>
+    <main>
+        <header class="mainmenu internal">
+            <h1>15-Position</h1>
+            <img src="../src/imgs/logo-css.png" alt="CSS">
+                <ul>
+                    <li>Normal/Static</li>
+                    <li>Absolute</li>
+                    <li>Fixed</li>
+                    <li>Sticky</li>
+                    <li>Relative</li>
+                </ul>
+        </header>
+        <section>
+            <div class="sticky caja">Soy Sticky (Scroll down)</div>
+
+    <div class="contenedor">
+        <div class="caja static">Static</div>
+        <div class="caja relative">Relative</div>
+        <div class="caja absolute">Absolute</div>
+    </div>
+
+    <div class="caja fixed">Fixed</div>
+
+    <p>Scroll para ver el efecto Fixed y Sticky.</p>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-visualization</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <style>
+        .caja {
+            width: 100px;
+            height: 100px;
+            background: #3498db;
+            color: white;
+            margin: 5px;
+            display: inline-block; /* block | inline | none | flex | grid */
+        }
+
+        .oculto-visibility { visibility: hidden; } /* Ocupa espacio pero no se ve */
+        .oculto-display { display: none; } /* No ocupa espacio */
+
+        .contenedor-overflow {
+            width: 200px;
+            height: 100px;
+            border: 2px solid red;
+            overflow: scroll; /* visible | hidden | scroll | auto */
+            margin-top: 20px;
+        }
+
+        /* Z-Index */
+        .padre-z { position: relative; height: 150px; margin-top: 20px; }
+        .z-1 { position: absolute; top: 0; left: 0; background: yellow; width: 100px; height: 100px; z-index: 1; }
+        .z-2 { position: absolute; top: 20px; left: 20px; background: blue; width: 100px; height: 100px; z-index: 2; }
+        .z-3 { position: absolute; top: 40px; left: 40px; background: green; width: 100px; height: 100px; z-index: 3; }
+    </style>
+</head>
+<body class="css">
+    <nav class="back">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M112,56V200L40,128Z" opacity="0.2"></path><path d="M216,120H120V56a8,8,0,0,0-13.66-5.66l-72,72a8,8,0,0,0,0,11.32l72,72A8,8,0,0,0,120,200V136h96a8,8,0,0,0,0-16ZM104,180.69,51.31,128,104,75.31Z"></path></svg>
+        </a>
+    </nav>
+    <main>
+        <header class="mainmenu internal">
+            <h1>17-visualization</h1>
+            <img src="../src/imgs/logo-css.png" alt="CSS">
+            <ul>
+                <li>Visibility: visible|hidden</li>
+                <li>Overflow: visible|hidden|scroll|auto</li>
+                <li>Z-Index: 1...n</li>
+                <li>- Display: block|inline|none|flex|grid</li>
+            </ul>
+        </header>
+        <section>
+            <h3>Display y Visibility</h3>
+    <div class="caja">Visible</div>
+    <div class="caja oculto-visibility">Visibility Hidden</div>
+    <div class="caja">Visible</div>
+    <div class="caja oculto-display">Display None</div>
+    <div class="caja">Visible</div>
+
+    <h3>Overflow (Scroll)</h3>
+    <div class="contenedor-overflow">
+        Este texto es muy largo para la caja. Si ves una barra de scroll, el overflow funciona. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+    </div>
+
+    <h3>Z-Index (Capas)</h3>
+    <div class="padre-z">
+        <div class="z-1">Z-Index 1</div>
+        <div class="z-2">Z-Index 2</div>
+        <div class="z-3">Z-Index 3</div>
+    </div>
+        </section>
+    </main>
+</body>
+</html>

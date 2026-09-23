@@ -71,7 +71,6 @@ body {
                         height: 50px;
                         width: 50px;
                     }
-                }
                 aside{
                     h4{
                         font-size: 1.2rem;
@@ -79,6 +78,7 @@ body {
                 }
             }
         }
+    }
         section{
             h2.subtitle{
                 color: #e44d26;
@@ -91,16 +91,20 @@ body {
         background: linear-gradient(45deg, black, #663399);
         background-attachment: fixed;
         main{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-                menu.mainmenu{
-                a:link, a:visited{
-                    span{
-                        background-color: purple;
+                header.mainmenu{
+                    img{
                         height: 50px;
                         width: 50px;
+                    }
+                }
+                menu.mainmenu{
+                    margin-top: 2rem;
+                    a:link, a:visited{
+                        span{
+                            background-color: #663399;
+                            height: 50px;
+                            width: 50px;
+                        }
                     }
                 }
                 aside{
@@ -110,7 +114,8 @@ body {
                 }
             }
         }
-        section{
+        section {
+            margin: 2rem auto;
             h2.subtitle{
                 color: #663399;
                 border-bottom: 2px dotted #663399;
@@ -118,6 +123,20 @@ body {
             }
         }
     }
+main {
+        background-color: rgba(9, 9, 9, 0.297);
+        border-radius: 0.4rem;
+        padding: 1rem;
+        header.mainmenu {
+            &.internal{
+                h1{
+                    font-size: 2rem;
+                }
+                img{
+                    height: 120px;
+                    width: 120px;
+                }
+            }
             h1 {
                 font-size: 3.6rem;
                 border-bottom: 2px solid #0c3817;
@@ -155,6 +174,7 @@ body {
                 margin: 0;
             }
         }
+}
         menu.mainmenu{
             display: flex;
             flex-direction: column;
@@ -221,6 +241,4 @@ body {
         }
         .red{
             background: red;
-        }
-    }
 }
