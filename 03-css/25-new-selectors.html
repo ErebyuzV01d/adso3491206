@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25-New-Selectors</title>
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <style>
+        section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            width: 120px;
+            li {
+                border: 2px solid #fff9f9;
+                padding: 0.4rem;
+                width: 120px;
+                margin-bottom: 0.4rem;
+            }
+        }
+        /* :first-of-type|:last-of-type */
+        ul li:first-of-type {
+            background-color: #f9f9f9;
+            color: #000;
+        }
+        /* :first-of-type|:last-of-type */
+        ul li:last-of-type {
+            background-color: #f9f9f9;
+            color: #000;
+        }
+        /* nth of type*/
+        ul li:nth-of-type(3) {
+            background-color: #ab7dd999;
+        }
+        div.chess {
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
+}
+    div.f {
+        div.c {
+            background-color: #fff9f9;
+            height: 42px;
+            width: 42px;
+        }
+        &:nth-of-type(even) {
+            div.c:nth-of-type(odd) {
+                background-color: brown;
+            }
+        }
+        &:nth-of-type(odd) {
+            div.c:nth-of-type(even) {
+                background-color: brown;
+            }
+        }
+    }
+    div.target {
+        div.menu-fruits {
+            text-align: center;
+            a:is(:link, :visited) {
+                border: 2px solid #fff9;
+                display: inline-block;
+                color: #fff9;
+                text-decoration: none;
+                width: 80px;
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    div.emojis {
+        div.fruit {
+            display: none;
+            text-align: center;
+            zoom: 8;
+            &.target {
+                display: block;
+            }
+        }
+    }
+}
+    /* selection */
+    p.yellow::selection {
+        background-color: #ffcd00;
+    }
+    p.blue::selection {
+        background-color: #003087;
+    }
+    p.red2::selection {
+        background-color: #c8102e;
+    }  
+    </style>
+</head>
+<body class="css">
+    <nav class="back">
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M112,56V200L40,128Z" opacity="0.2"></path><path d="M216,120H120V56a8,8,0,0,0-13.66-5.66l-72,72a8,8,0,0,0,0,11.32l72,72A8,8,0,0,0,120,200V136h96a8,8,0,0,0,0-16ZM104,180.69,51.31,128,104,75.31Z"></path></svg>
+        </a>
+    </nav>
+    <main>
+        <header class="mainmenu internal">
+            <h1>25-New-Selectors</h1>
+            <img src="../src/imgs/logo-css.png" alt="Profile">
+            <h3>Used to select the element(s) you want to style</h3>
+        </header>
+        <section>
+            <h2 class="subtitle">:first-of-type|:last-of-type</h2>
+            <ul>
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+                <li>Fourth</li>
+                <li>Last</li>
+            </ul>
+            <h2 class="subtitle">:nth-child(n)</h2>
+            <div class="chess">
+                <div class="f">
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                    <div class="c"></div>
+                </div>
+            </div>
+            <h2 class="subtitle">:target</h2>
+            <div class="target">
+                <div class="menu-fruits">
+                    <a href="#apple">Apple</a>
+                    <a href="#pear">Pear</a>
+                    <a href="#orange">Orange</a>
+                </div>
+                <div class="emojis">
+                    <div id="apple" class="fruit">apple</div>
+                    <div id="pear" class="fruit">pear</div>
+                    <div id="orange" class="fruit">orange</div>
+                </div>
+            </div>
+            <h2 class="subtitle">::selection</h2>
+            <p class="yellow">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, a?
+            </p>
+            <p class="blue">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, a?
+            </p>
+            <p class="red2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, a?
+            </p>
+        </section>
+    </main>
+</body>
+</html>
